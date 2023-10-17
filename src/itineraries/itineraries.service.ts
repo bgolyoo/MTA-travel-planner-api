@@ -14,6 +14,12 @@ export class ItinerariesService {
   ): Promise<{ id: number }> {
     const result = await this.db.insert(itineraries).values({
       name: createItineraryDto.name,
+      fromCity: createItineraryDto.fromCity,
+      toCity: createItineraryDto.toCity,
+      fromDate: new Date(createItineraryDto.fromDate),
+      toDate: new Date(createItineraryDto.toDate),
+      transportation: createItineraryDto.transportation,
+      hotel: createItineraryDto.hotel,
     });
 
     return { id: result.lastInsertRowid as number };
@@ -43,6 +49,12 @@ export class ItinerariesService {
       .update(itineraries)
       .set({
         name: updateItineraryDto.name,
+        fromCity: updateItineraryDto.fromCity,
+        toCity: updateItineraryDto.toCity,
+        fromDate: new Date(updateItineraryDto.fromDate),
+        toDate: new Date(updateItineraryDto.toDate),
+        transportation: updateItineraryDto.transportation,
+        hotel: updateItineraryDto.hotel,
       })
       .where(eq(itineraries.id, id));
 
