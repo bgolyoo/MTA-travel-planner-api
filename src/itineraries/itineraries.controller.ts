@@ -32,12 +32,11 @@ export class ItinerariesController {
   }
 
   @Put(':id')
-  @HttpCode(204)
   async update(
     @Param('id') id: string,
     @Body() updateItineraryDto: UpdateItineraryDto,
   ) {
-    await this.itinerariesService.update(+id, updateItineraryDto);
+    return await this.itinerariesService.update(+id, updateItineraryDto);
   }
 
   @Delete(':id')

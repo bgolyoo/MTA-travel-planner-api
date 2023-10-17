@@ -61,7 +61,7 @@ export class ItinerariesService {
     if (result.changes === 0)
       throw new NotFoundException(`Itinerary with id: ${id} not found`);
 
-    return { id: result.lastInsertRowid as number };
+    return { id };
   }
 
   async remove(id: number): Promise<{ id: number }> {
@@ -72,6 +72,6 @@ export class ItinerariesService {
     if (result.changes === 0)
       throw new NotFoundException(`Itinerary with id: ${id} not found`);
 
-    return { id: result.lastInsertRowid as number };
+    return { id };
   }
 }
